@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/dude
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kevinebaugh.com
+  * I am dude (https://keybase.io/dude) on keybase.
+  * I have a public key with fingerprint DE1A E4E6 84ED 6B83 5F42  0EE7 D725 95C8 A0D0 B154
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101f74abc75acecfbc15e12d2d5a5ec0f5c3c3e8e31dc89cc1fe327c3638c3c17450a",
+      "fingerprint": "de1ae4e684ed6b835f420ee7d72595c8a0d0b154",
+      "host": "keybase.io",
+      "key_id": "d72595c8a0d0b154",
+      "kid": "0101f74abc75acecfbc15e12d2d5a5ec0f5c3c3e8e31dc89cc1fe327c3638c3c17450a",
+      "uid": "bae1c67cbbd5127924afb44c800aef00",
+      "username": "dude"
+    },
+    "service": {
+      "hostname": "kevinebaugh.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1550761080,
+  "expire_in": 157680000,
+  "prev": "11d39f76a5977897b9a82ab7eefa50886e6a08a68dd42b392e98082d8fad1e00",
+  "seqno": 37,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.0
+Comment: https://keybase.io/crypto
+
+yMI1AnicrVJvTFZVGH/5IxHMzbG2atOoq1ktYOfce8+95744+mNzfcnSDwWD+e78
+ee773oB73/9BaPChVitZW1CWH4IljFFs0IKNGlM0nJtCZV/SibaJc2tKjYihjqnn
+Mv3WRz+dnef35/k9z56ZjUWRsoLKf986vlK9pabgzPFDuUiTP9XWofFAtmvRDq0Z
+1h9okZDJxpo9qUU1hBF2bZNxYRMmQLhcYAJYl7okjIBALhGGMICCgaWgjhDYBUO3
+hWEZVCHYNgliWpXmen4c0sm052eVrQTMwASLmiAtTg3imjoCsKWtE4cIypBEHBNT
+CRNBJlSocJxloMYLVE19Yuvx/of/gHPn1u04AywsW3AuCdZtRzeZy01TUIQYuAiF
+xAykfdYKYaqcBO1AlaYqeU9AuNRwintoM+Q9HzjLxRM1ImhV0mQ6yAYiaFFgIptN
+ZqKhONueDNnvAI/d84lxz5dqjUqRh3TGC3wtihVTZL3QGBOCbAsjiqo0aEt6aYh5
+IYPYloqJUNgH8soSY2k4rm0x4tg2dWzuMKozbgO4jCBKLbAYosyiUpo6NxwdHIqo
+LqnLJIb1YTOQ8gMtatgqJ4srz4wX91k2l1Zzn5huKo4UlEVKNhSG9xUpe3jT/atr
+fOmhOy589O7mnr8XTn6z0tdTv+3Iue0jlxdfGDAnusZffmW5tSu1cym2NvvpB29P
+RPTVydt/1u56nvZ/3VOydc/F2DCpfc3f/O3F+VFnf+mPA78uHJwarzsrltsKH3v6
+k/4PO0frfnr2udXGLQ2r3cUNzr6WtX9u/d47OLjUfe7wiZkbR7c+/lTRsWtXdp/u
+q1i4GfAr8+8b77n/VfzW+egfbzySOlIwUn/4zkSirWRwbr5jb/T74c9/mTF637z+
+el8qf3b858UG8eTBTcET31W3/PBV8VB35NbS7KVnJufrrr5auW97xYXCue7S6YoB
+dvOLj8cmXhyZHFrdduivL099Fu+90XmpfNdSbKzk/I7d5XcBZO5LrQ==
+=Pk9r
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dude
+
+==================================================================
