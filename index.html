@@ -218,22 +218,48 @@
         var themeColor = document.querySelector('meta[name="theme-color"]');
         var countEl = document.getElementById('redesign-count');
         var current = 0;
-        var count = 0;
+        // Everyone's clicks, from the counter Worker in _counter/. Stays null if
+        // it can't be reached, and the label falls back to this visitor's clicks.
+        var counterUrl = '/api/redesigns';
+        var globalCount = null;
+        var localCount = 0;
 
         function tilt(max) {
           return (Math.round((Math.random() * 2 - 1) * max * 10) / 10) + 'deg';
         }
 
+        function showCount(n) {
+          countEl.textContent = n === 1 ? 'redesigned 1 time' : 'redesigned ' + n.toLocaleString() + ' times';
+        }
+
+        function syncCount(request) {
+          fetch(counterUrl, request)
+            .then(function (response) { return response.ok ? response.json() : Promise.reject(); })
+            .then(function (data) {
+              globalCount = Math.max(globalCount || 0, data.count);
+              if (globalCount > 0) showCount(globalCount);
+            })
+            .catch(function () {});
+        }
+
+        syncCount();
+
         document.getElementById('randomize').addEventListener('click', function () {
           var next = current;
           while (next === current) next = Math.floor(Math.random() * themes.length);
           current = next;
-          count += 1;
+          localCount += 1;
           root.setAttribute('data-theme', themes[current].id);
           root.style.setProperty('--tilt-name', tilt(2.5));
           root.style.setProperty('--tilt-button', tilt(3));
           themeColor.setAttribute('content', themes[current].ground);
-          countEl.textContent = count === 1 ? 'redesigned 1 time' : 'redesigned ' + count + ' times';
+          if (globalCount === null) {
+            showCount(localCount);
+          } else {
+            globalCount += 1;
+            showCount(globalCount);
+          }
+          syncCount({ method: 'POST' });
         });
 
         document.querySelector('.toolbar').hidden = false;
