@@ -44,6 +44,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#E9E1FF">
+    <script>
+      // Restore this visitor's last randomized design before first paint.
+      try {
+        var saved = JSON.parse(localStorage.getItem('design'));
+        if (saved && /^[a-z]+$/.test(saved.theme)) {
+          document.documentElement.setAttribute('data-theme', saved.theme);
+          document.documentElement.style.setProperty('--tilt-name', saved.tiltName);
+          document.documentElement.style.setProperty('--tilt-button', saved.tiltButton);
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', saved.ground);
+        }
+      } catch (e) {}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,6 +228,10 @@
         var themeColor = document.querySelector('meta[name="theme-color"]');
         var countEl = document.getElementById('redesign-count');
         var current = 0;
+        for (var i = 0; i < themes.length; i++) {
+          if (themes[i].id === root.getAttribute('data-theme')) current = i;
+        }
+        root.setAttribute('data-theme', themes[current].id);
         // Everyone's clicks, from the counter Worker in _counter/. Stays null if
         // it can't be reached, and the label falls back to this visitor's clicks.
         var counterUrl = '/api/redesigns';
@@ -247,10 +263,17 @@
           while (next === current) next = Math.floor(Math.random() * themes.length);
           current = next;
           localCount += 1;
-          root.setAttribute('data-theme', themes[current].id);
-          root.style.setProperty('--tilt-name', tilt(2.5));
-          root.style.setProperty('--tilt-button', tilt(3));
-          themeColor.setAttribute('content', themes[current].ground);
+          var design = {
+            theme: themes[current].id,
+            ground: themes[current].ground,
+            tiltName: tilt(2.5),
+            tiltButton: tilt(3)
+          };
+          root.setAttribute('data-theme', design.theme);
+          root.style.setProperty('--tilt-name', design.tiltName);
+          root.style.setProperty('--tilt-button', design.tiltButton);
+          themeColor.setAttribute('content', design.ground);
+          try { localStorage.setItem('design', JSON.stringify(design)); } catch (e) {}
           if (globalCount === null) {
             showCount(localCount);
           } else {
