@@ -142,18 +142,11 @@
       }
       ul, ol { margin: 0; padding-left: 28px; display: flex; flex-direction: column; gap: 14px; }
 
-      .sign-off {
-        margin: auto 0 -24px;
-        max-width: 640px;
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 1.3;
-        color: var(--ink);
-        transform: rotate(-1deg);
-        transform-origin: left;
-      }
+      hgroup { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+      .subtitle { margin: 0; color: var(--muted); }
 
       footer {
+        margin-top: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -185,7 +178,10 @@
 
     <main class="columns">
       <section class="projects" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Side projects</h2>
+        <hgroup>
+          <h2 id="projects-heading">Side projects</h2>
+          <p class="subtitle">When you reach the end of the internet, add more internet.</p>
+        </hgroup>
         <ul>
           <li><a href="https://outstandingbeef.com">Outstanding Beef</a>: the trusted resource for exceptionally good meat and unresolved grudges.</li>
           <li><a href="https://timezones.compare">timezones.compare</a>: find the one hour when all your coworkers are awake. It reads time zones straight from Slack, so nobody keeps a spreadsheet of who lives where.</li>
@@ -203,8 +199,6 @@
         </ol>
       </section>
     </main>
-
-    <p class="sign-off">When you reach the end of the internet, add more internet.</p>
 
     <footer>
       <span>Fun fact: this whole website used to be four links. Look at it now. Growth.</span>
