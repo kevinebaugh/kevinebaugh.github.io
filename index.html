@@ -1,74 +1,239 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="lilac">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
-    <style type="text/css">
-      . {
-        font-family: 'Kalam', sans-serif;
-        color: #201B21;
-      }
-      body {
-        font-size: 20px;
-      }
-      .container {
-        width: 400px;
-        margin: 40px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      h1 {
-        font-size: 60px;
-      }
-      a, a:visited {
-        color: #1B676B;
-        font-weight: bold;
-      }
-      a:hover {
-        text-decoration-style: dotted;
-      }
-    </style>
+    <title>Kevin Ebaugh: IFTTT, side projects and contact</title>
+    <meta name="description" content="Kevin Ebaugh works at IFTTT, helping people put the internet to work for them. Side projects: timezones.compare, typing.feedback and Switchyard.">
+    <meta name="author" content="Kevin Ebaugh">
+    <link rel="canonical" href="https://kevinebaugh.com/">
 
-    <title>Kevin Ebaugh</title>
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://kevinebaugh.com/">
+    <meta property="og:site_name" content="Kevin Ebaugh">
+    <meta property="og:title" content="Kevin Ebaugh">
+    <meta property="og:description" content="Works at IFTTT, helping people put the internet to work for them. Also pokes at side projects.">
+    <meta property="og:image" content="https://kevinebaugh.com/android-chrome-512x512.png">
+    <meta property="profile:first_name" content="Kevin">
+    <meta property="profile:last_name" content="Ebaugh">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@kevinebaugh">
+    <meta name="twitter:creator" content="@kevinebaugh">
+    <meta name="twitter:title" content="Kevin Ebaugh">
+    <meta name="twitter:description" content="Works at IFTTT, helping people put the internet to work for them. Also pokes at side projects.">
+    <meta name="twitter:image" content="https://kevinebaugh.com/android-chrome-512x512.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kevin Ebaugh",
+      "url": "https://kevinebaugh.com/",
+      "email": "mailto:kevinebaugh@gmail.com",
+      "worksFor": { "@type": "Organization", "name": "IFTTT", "url": "https://ifttt.com" },
+      "sameAs": [
+        "https://twitter.com/kevinebaugh",
+        "https://github.com/kevinebaugh",
+        "https://keybase.io/dude"
+      ]
+    }
+    </script>
+
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#E9E1FF">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bungee&family=Kalam:wght@400;700&family=Rubik+Mono+One&family=Shrikhand&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --ground: #E9E1FF;
+        --text: #1E1B18;
+        --muted: #4D4558;
+        --ink: #1E1B18;
+        --link: #0F5E63;
+        --squiggle: #FF5A36;
+        --display: 'Bagel Fat One', cursive;
+        --tilt-name: -1.5deg;
+        --tilt-button: 2deg;
+      }
+      [data-theme="midnight"] { --ground: #1C1A2B; --text: #F5EFE6; --muted: #C9C1D6; --ink: #FFE96B; --link: #7FE0D0; --squiggle: #FF5A36; --display: 'Shrikhand', cursive; }
+      [data-theme="peach"] { --ground: #FFD6C4; --text: #1E1B18; --muted: #5A3E33; --ink: #5B2BB5; --link: #8A2A12; --squiggle: #5B2BB5; --display: 'Shrikhand', cursive; }
+      [data-theme="mint"] { --ground: #D3F0E4; --text: #1E1B18; --muted: #33504A; --ink: #0F5E63; --link: #9A2B10; --squiggle: #E0401F; --display: 'Bungee', cursive; }
+      [data-theme="highlighter"] { --ground: #FFF14D; --text: #1E1B18; --muted: #4A4520; --ink: #1E1B18; --link: #5B2BB5; --squiggle: #FF3D9A; --display: 'Rubik Mono One', sans-serif; }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        padding: 40px clamp(20px, 6vw, 96px) 56px;
+        background: var(--ground);
+        color: var(--text);
+        font-family: 'Kalam', 'Comic Sans MS', cursive;
+        font-size: 22px;
+        line-height: 1.4;
+        transition: background-color 300ms, color 300ms;
+      }
+      a {
+        color: var(--link);
+        font-weight: 700;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+      a:hover { text-decoration-style: wavy; }
+      .muted { color: var(--muted); }
+      .small { font-size: 17px; }
+
+      .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+      .toolbar[hidden] { display: none; }
+      .randomize {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 20px;
+        border: 2.5px solid var(--text);
+        border-radius: 12px;
+        background: var(--ground);
+        color: var(--text);
+        font: 700 20px 'Kalam', cursive;
+        cursor: pointer;
+        box-shadow: 3px 4px 0 var(--text);
+        transform: rotate(var(--tilt-button));
+      }
+      .randomize:active { box-shadow: 1px 1px 0 var(--text); translate: 2px 3px; }
+      .toolbar .muted { font-size: 18px; }
+
+      header { display: flex; flex-direction: column; gap: 18px; }
+      .hello { margin: 0; transform: rotate(-2deg); transform-origin: left; }
+      h1 {
+        margin: 0;
+        font-family: var(--display);
+        font-weight: 400;
+        font-size: clamp(56px, 10vw, 156px);
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        transform: rotate(var(--tilt-name));
+        transform-origin: left;
+      }
+      .squiggle { width: 420px; max-width: 70%; height: auto; margin-top: -6px; color: var(--squiggle); }
+      .intro { margin: 0; max-width: 640px; font-size: 26px; line-height: 1.45; }
+
+      .columns { display: flex; flex-wrap: wrap; gap: 48px clamp(40px, 6vw, 96px); align-items: flex-start; }
+      .columns section { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+      .projects { flex: 3 1 480px; }
+      .contact { flex: 2 1 320px; }
+      h2 {
+        margin: 0;
+        font-family: var(--display);
+        font-weight: 400;
+        font-size: 34px;
+        line-height: 1.2;
+        color: var(--ink);
+      }
+      h2 .aside { font-family: 'Kalam', cursive; font-size: 22px; color: var(--text); }
+      ul, ol { margin: 0; padding-left: 28px; display: flex; flex-direction: column; gap: 14px; }
+
+      footer {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px 32px;
+        font-size: 19px;
+        color: var(--muted);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body { transition: none; }
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Kevin Ebaugh</h1>
-      <ul>
-        <li>
-          Twitter: <s>@ke</s> <a target="_blank" href="https://twitter.com/kevinebaugh">@kevinebaugh</a>
-        </li>
-        <li>
-          Email: <a target="_blank" href="mailto:kevinebaugh@gmail.com">kevinebaugh@gmail.com</a>
-        </li>
-        <li>
-          Keybase: <a target="_blank" href="https://keybase.io/dude">dude</a>
-        </li>
-        <li>
-          Work: <a target="_blank" href="https://ifttt.com">IFTTT</a>
-        </li>
-      </ul>
-      <h2>Side projects</h2>
-      <ul>
-        <li>
-          <a target="_blank" href="https://timezones.compare">timezones.compare</a>: see where your coworkers' days overlap
-        </li>
-        <li>
-          <a target="_blank" href="https://typing.feedback">typing.feedback</a>: a calm place to improve your typing speed
-        </li>
-        <li>
-          <a target="_blank" href="https://github.com/kevinebaugh/switchyard">Switchyard</a>: every link on the right track in your browser
-        </li>
-      </ul>
+    <div class="toolbar" hidden>
+      <button type="button" class="randomize" id="randomize">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+        Randomize design
+      </button>
+      <span class="muted" id="redesign-count" aria-live="polite">bored of this look?</span>
     </div>
+
+    <header>
+      <p class="hello muted">hi, hello, I'm</p>
+      <h1>Kevin Ebaugh</h1>
+      <svg class="squiggle" aria-hidden="true" width="420" height="22" viewBox="0 0 420 22" fill="none"><path d="M4 14c40-10 70 6 110-2s60-10 100-2 70 8 100 0 60-8 102-4" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+      <p class="intro">I work at <a href="https://ifttt.com">IFTTT</a>, helping people put the internet to work for them.</p>
+    </header>
+
+    <main class="columns">
+      <section class="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Side projects <span class="aside">(stuff I'm poking at)</span></h2>
+        <ul>
+          <li><a href="https://timezones.compare">timezones.compare</a>: find the one hour when all your coworkers are awake. It reads time zones straight from Slack, so nobody keeps a spreadsheet of who lives where.</li>
+          <li><a href="https://typing.feedback">typing.feedback</a>: a calm place to type faster. It will not yell at you. Your keyboard might.</li>
+          <li><a href="https://github.com/kevinebaugh/switchyard">Switchyard</a>: a tiny railroad for your links. Every one ends up on the right track in your browser. Choo choo.</li>
+        </ul>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact <span class="aside">(ranked)</span></h2>
+        <ol>
+          <li>Email: <a href="mailto:kevinebaugh@gmail.com">kevinebaugh@gmail.com</a></li>
+          <li>Twitter: <s class="muted">@ke</s> <span class="muted small">(rip)</span> <a href="https://twitter.com/kevinebaugh" rel="me">@kevinebaugh</a></li>
+          <li>Keybase: <a href="https://keybase.io/dude" rel="me">dude</a></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <span>Fun fact: this whole website used to be four links. Look at it now. Growth.</span>
+      <span>© Kevin Ebaugh · now wearing: <span id="theme-name">Lilac</span></span>
+    </footer>
+
+    <script>
+      (function () {
+        var themes = [
+          { id: 'lilac', name: 'Lilac', ground: '#E9E1FF' },
+          { id: 'midnight', name: 'Midnight snack', ground: '#1C1A2B' },
+          { id: 'peach', name: 'Peach fuzz', ground: '#FFD6C4' },
+          { id: 'mint', name: 'Mint condition', ground: '#D3F0E4' },
+          { id: 'highlighter', name: 'Highlighter', ground: '#FFF14D' }
+        ];
+        var root = document.documentElement;
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+        var nameEl = document.getElementById('theme-name');
+        var countEl = document.getElementById('redesign-count');
+        var current = 0;
+        var count = 0;
+
+        function tilt(max) {
+          return (Math.round((Math.random() * 2 - 1) * max * 10) / 10) + 'deg';
+        }
+
+        document.getElementById('randomize').addEventListener('click', function () {
+          var next = current;
+          while (next === current) next = Math.floor(Math.random() * themes.length);
+          current = next;
+          count += 1;
+          root.setAttribute('data-theme', themes[current].id);
+          root.style.setProperty('--tilt-name', tilt(2.5));
+          root.style.setProperty('--tilt-button', tilt(3));
+          themeColor.setAttribute('content', themes[current].ground);
+          nameEl.textContent = themes[current].name;
+          countEl.textContent = count === 1 ? 'redesigned 1 time' : 'redesigned ' + count + ' times';
+        });
+
+        document.querySelector('.toolbar').hidden = false;
+      })();
+    </script>
   </body>
 </html>
