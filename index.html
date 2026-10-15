@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Kevin Ebaugh: IFTTT, side projects and contact</title>
+    <title>Kevin Ebaugh</title>
     <meta name="description" content="Kevin Ebaugh works at IFTTT, helping people put the internet to work for them. Side projects: Outstanding Beef, timezones.compare, typing.feedback and Switchyard.">
     <meta name="author" content="Kevin Ebaugh">
     <link rel="canonical" href="https://kevinebaugh.com/">
@@ -44,6 +44,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#E9E1FF">
+    <script>
+      // Restore this visitor's last randomized design before first paint.
+      try {
+        var saved = JSON.parse(localStorage.getItem('design'));
+        if (saved && /^[a-z]+$/.test(saved.theme)) {
+          document.documentElement.setAttribute('data-theme', saved.theme);
+          document.documentElement.style.setProperty('--tilt-name', saved.tiltName);
+          document.documentElement.style.setProperty('--tilt-button', saved.tiltButton);
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', saved.ground);
+        }
+      } catch (e) {}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +101,6 @@
       }
       a:hover { text-decoration-style: wavy; }
       .muted { color: var(--muted); }
-      .small { font-size: 17px; }
 
       .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
       .toolbar[hidden] { display: none; }
@@ -193,7 +204,7 @@
         <h2 id="contact-heading">Contact</h2>
         <ol>
           <li>Email: <a href="mailto:kevinebaugh@gmail.com">kevinebaugh@gmail.com</a></li>
-          <li>Twitter: <s class="muted">@ke</s> <span class="muted small">(rip)</span> <a href="https://twitter.com/kevinebaugh" rel="me">@kevinebaugh</a></li>
+          <li>Twitter: <s class="muted">@ke</s> <a href="https://twitter.com/kevinebaugh" rel="me">@kevinebaugh</a></li>
           <li>Keybase: <a href="https://keybase.io/dude" rel="me">dude</a></li>
         </ol>
       </section>
@@ -217,6 +228,10 @@
         var themeColor = document.querySelector('meta[name="theme-color"]');
         var countEl = document.getElementById('redesign-count');
         var current = 0;
+        for (var i = 0; i < themes.length; i++) {
+          if (themes[i].id === root.getAttribute('data-theme')) current = i;
+        }
+        root.setAttribute('data-theme', themes[current].id);
         // Everyone's clicks, from the counter Worker in _counter/. Stays null if
         // it can't be reached, and the label falls back to this visitor's clicks.
         var counterUrl = '/api/redesigns';
@@ -248,10 +263,17 @@
           while (next === current) next = Math.floor(Math.random() * themes.length);
           current = next;
           localCount += 1;
-          root.setAttribute('data-theme', themes[current].id);
-          root.style.setProperty('--tilt-name', tilt(2.5));
-          root.style.setProperty('--tilt-button', tilt(3));
-          themeColor.setAttribute('content', themes[current].ground);
+          var design = {
+            theme: themes[current].id,
+            ground: themes[current].ground,
+            tiltName: tilt(2.5),
+            tiltButton: tilt(3)
+          };
+          root.setAttribute('data-theme', design.theme);
+          root.style.setProperty('--tilt-name', design.tiltName);
+          root.style.setProperty('--tilt-button', design.tiltButton);
+          themeColor.setAttribute('content', design.ground);
+          try { localStorage.setItem('design', JSON.stringify(design)); } catch (e) {}
           if (globalCount === null) {
             showCount(localCount);
           } else {
