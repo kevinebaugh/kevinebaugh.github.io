@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Kevin Ebaugh: IFTTT, side projects and contact</title>
-    <meta name="description" content="Kevin Ebaugh works at IFTTT, helping people put the internet to work for them. Side projects: timezones.compare, typing.feedback and Switchyard.">
+    <meta name="description" content="Kevin Ebaugh works at IFTTT, helping people put the internet to work for them. Side projects: Outstanding Beef, timezones.compare, typing.feedback and Switchyard.">
     <meta name="author" content="Kevin Ebaugh">
     <link rel="canonical" href="https://kevinebaugh.com/">
 
@@ -140,7 +140,6 @@
         line-height: 1.2;
         color: var(--ink);
       }
-      h2 .aside { font-family: 'Kalam', cursive; font-size: 22px; color: var(--text); }
       ul, ol { margin: 0; padding-left: 28px; display: flex; flex-direction: column; gap: 14px; }
 
       footer {
@@ -176,8 +175,9 @@
 
     <main class="columns">
       <section class="projects" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Side projects <span class="aside">(stuff I'm poking at)</span></h2>
+        <h2 id="projects-heading">Side projects</h2>
         <ul>
+          <li><a href="https://outstandingbeef.com">Outstanding Beef</a>: the trusted resource for exceptionally good meat and unresolved grudges.</li>
           <li><a href="https://timezones.compare">timezones.compare</a>: find the one hour when all your coworkers are awake. It reads time zones straight from Slack, so nobody keeps a spreadsheet of who lives where.</li>
           <li><a href="https://typing.feedback">typing.feedback</a>: a calm place to type faster. It will not yell at you. Your keyboard might.</li>
           <li><a href="https://github.com/kevinebaugh/switchyard">Switchyard</a>: a tiny railroad for your links. Every one ends up on the right track in your browser. Choo choo.</li>
@@ -185,7 +185,7 @@
       </section>
 
       <section class="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact <span class="aside">(ranked)</span></h2>
+        <h2 id="contact-heading">Contact</h2>
         <ol>
           <li>Email: <a href="mailto:kevinebaugh@gmail.com">kevinebaugh@gmail.com</a></li>
           <li>Twitter: <s class="muted">@ke</s> <span class="muted small">(rip)</span> <a href="https://twitter.com/kevinebaugh" rel="me">@kevinebaugh</a></li>
@@ -196,7 +196,7 @@
 
     <footer>
       <span>Fun fact: this whole website used to be four links. Look at it now. Growth.</span>
-      <span>© Kevin Ebaugh · now wearing: <span id="theme-name">Lilac</span></span>
+      <span>© Kevin Ebaugh</span>
     </footer>
 
     <script>
@@ -210,7 +210,6 @@
         ];
         var root = document.documentElement;
         var themeColor = document.querySelector('meta[name="theme-color"]');
-        var nameEl = document.getElementById('theme-name');
         var countEl = document.getElementById('redesign-count');
         var current = 0;
         var count = 0;
@@ -228,7 +227,6 @@
           root.style.setProperty('--tilt-name', tilt(2.5));
           root.style.setProperty('--tilt-button', tilt(3));
           themeColor.setAttribute('content', themes[current].ground);
-          nameEl.textContent = themes[current].name;
           countEl.textContent = count === 1 ? 'redesigned 1 time' : 'redesigned ' + count + ' times';
         });
 
